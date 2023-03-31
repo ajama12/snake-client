@@ -4,18 +4,23 @@ const net = require("net");
 const connect = function () {
   const conn = net.createConnection({
     host: "localhost",
-    port: 50541
+    port: 50541,
   });
 
-   conn.on("data", () => {
+  conn.on("data", () => {
     // message when idling for too long
     console.log("you ded cuz you idled");
   });
 
   conn.on("connect", () => {
-    console.log("Successfully connected to game server");
+    console.log("Successfully connected to game server!");
     conn.write("Name: AMJ");
   });
+
+  // setTimeout((connect) => {
+  //   console.log("Delayed for 2 seconds.");
+  //   conn.write("Move: up");
+  // }, "2000");
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
@@ -23,4 +28,6 @@ const connect = function () {
   return conn;
 };
 
-module.exports = { connect };
+connect();
+
+module.exports = connect;
