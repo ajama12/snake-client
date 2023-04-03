@@ -17,11 +17,6 @@ const connect = function () {
     conn.write("Name: AMJ");
   });
 
-  // setTimeout((connect) => {
-  //   console.log("Delayed for 2 seconds.");
-  //   conn.write("Move: up");
-  // }, "2000");
-
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
@@ -30,4 +25,4 @@ const connect = function () {
 
 connect();
 
-module.exports = connect;
+module.exports = { connect };
