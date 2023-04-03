@@ -8,8 +8,7 @@ const connect = function () {
     port: PORT,
   });
 
-  conn.on("data", () => {
-    // message when idling for too long
+  conn.on("data", (data) => {
     console.log("you ded cuz you idled");
   });
 
@@ -23,7 +22,5 @@ const connect = function () {
 
   return conn;
 };
-
-connect();
 
 module.exports = { connect };
